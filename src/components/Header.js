@@ -11,9 +11,13 @@ export default function Header() {
 }
 
 const Topo = styled.div`
-    margin: 40px 60px;
+    padding: 30px 60px;
     font-family: 'Righteous', cursive;
     width: 255px;
+    position: fixed;
+    top: 0;
+    background-color: #FB6B6B;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     img{

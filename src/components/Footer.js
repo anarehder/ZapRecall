@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import cards from './cards';
 
-export default function Footer() {
+export default function Footer({perguntasRespondidas}) {
     return (
         <Rodape data-test="footer">
-            0/0 CONCLUÍDOS
+            {perguntasRespondidas}/{cards.length} CONCLUÍDOS
         </Rodape>
     );
 }
