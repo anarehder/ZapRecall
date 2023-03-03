@@ -44,6 +44,6 @@ const Perguntas = styled.div`
     min-height: 100vh;
     overflow-y: hidden;
     font-family: 'Recursive', sans-serif;
-    margin-bottom: 75px;
     margin-top: 120px;
+    margin-bottom: 35px;
 `
