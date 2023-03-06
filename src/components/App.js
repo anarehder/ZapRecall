@@ -7,13 +7,13 @@ import { useState } from "react";
 import BoasVindas from './BoasVindas';
 
 export default function App() {
-
+  const[errados,setErrados] = useState([]);
   const[perguntasRespondidas,setPerguntasRespondidas] = useState(0);
   const[telaInicial,setTelaInicial] = useState("inicio");
+  const[iconesRespostas, setIconesRespostas] = useState([]);
 
   function iniciarJogo(){
-    console.log("ligar");
-    setTelaInicial("jogo");
+      setTelaInicial("jogo");
   }
 
   return (
@@ -24,8 +24,10 @@ export default function App() {
       <TelaJogo telaInicial={telaInicial}>
         <GlobalStyle />
         <Header />
-        <Questions key={setPerguntasRespondidas} setPerguntasRespondidas={setPerguntasRespondidas} perguntasRespondidas={perguntasRespondidas}/>
-        <Footer key={perguntasRespondidas} perguntasRespondidas={perguntasRespondidas}/>
+        <Questions key={setPerguntasRespondidas} setPerguntasRespondidas={setPerguntasRespondidas} perguntasRespondidas={perguntasRespondidas}
+        iconesRespostas={iconesRespostas} setIconesRespostas={setIconesRespostas} errados={errados} setErrados={setErrados}/>
+        <Footer key={perguntasRespondidas} perguntasRespondidas={perguntasRespondidas}
+        iconesRespostas={iconesRespostas} errados={errados}/>
       </TelaJogo>
     </TelaInteira>
   );

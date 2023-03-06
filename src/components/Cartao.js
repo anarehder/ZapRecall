@@ -15,15 +15,16 @@ export default function Cartao(props) {
     }
 
     return (
-        <NumPergunta 
-        cor={props.resultado === "play" ? "#333333" : props.resultado === "errado" ? "#FF3030" : props.resultado === "medio" ? "#FF922E" : "#2FBE34"}
-        decoration={props.resultado === "play" ? "none" : "line-through"}
-        data-test="flashcard">
-            <span data-test="flashcard-text">Pergunta {props.number} </span>
-            <img src={props.resultado === "play" ? icones[0] : props.resultado === "errado" ? icones[3] : props.resultado === "medio" ? icones[2] : icones[1]} alt="icone" 
-            data-test={props.resultado === "play" ? "play-btn" : props.resultado === "errado" ? "no-icon" : props.resultado === "medio" ? "partial-icon" : "zap-icon"} 
-            onClick={() => exibirFrente(props.number, props.resultado)}/>
-        </NumPergunta>
+        <div data-test="flashcard">
+            <NumPergunta 
+            cor={props.resultado === "play" ? "#333333" : props.resultado === "errado" ? "#FF3030" : props.resultado === "medio" ? "#FF922E" : "#2FBE34"}
+            decoration={props.resultado === "play" ? "none" : "line-through"} >
+                <span data-test="flashcard-text">Pergunta {props.number} </span>
+                <img src={props.resultado === "play" ? icones[0] : props.resultado === "errado" ? icones[3] : props.resultado === "medio" ? icones[2] : icones[1]} alt="icone" 
+                data-test={props.resultado === "play" ? "play-btn" : props.resultado === "errado" ? "no-icon" : props.resultado === "medio" ? "partial-icon" : "zap-icon"} 
+                onClick={() => exibirFrente(props.number, props.resultado)}/>
+            </NumPergunta>
+        </div>
     )
 }
 

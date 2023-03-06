@@ -1,21 +1,26 @@
 import styled from 'styled-components';
-
+import errado from "../assets/icone_erro.png";
+import certo from "../assets/icone_certo.png";
+import medio from "../assets/icone_quase.png";
 
 export default function Verso(props) {
 
     function exibirErrado(number){
         props.setErrados([...props.errados,number]);
         somarRespotas();
+        props.setIconesRespostas([...props.iconesRespostas, errado]);
     }
 
     function exibirMedio(number){
         props.setMedios([...props.medios,number]);
         somarRespotas();
+        props.setIconesRespostas([...props.iconesRespostas, medio]);
     }
 
     function exibirCertos(number){
         props.setCertos([...props.certos,number]);
         somarRespotas();
+        props.setIconesRespostas([...props.iconesRespostas, certo]);
     }
 
     function somarRespotas(){
@@ -24,15 +29,16 @@ export default function Verso(props) {
     }
 
     return (
-        <BackFace data-test="flashcard">
-            <span data-test="flashcard-text"> {props.answer} </span>
-            <div>
-                <Botao cor={"#FF3030"} data-test="no-btn" onClick={() => exibirErrado(props.number)}>Não lembrei</Botao>
-                <Botao cor={"#FF922E"} data-test="partial-btn" onClick={() => exibirMedio(props.number)}>Quase não lembrei</Botao>
-                <Botao cor={"#2FBE34"} data-test="zap-btn" onClick={() => exibirCertos(props.number)}> Zap!</Botao>
-            </div>
-        </BackFace>
-
+        <div data-test="flashcard">
+            <BackFace >
+                <span data-test="flashcard-text"> {props.answer} </span>
+                <div>
+                    <Botao cor={"#FF3030"} data-test="no-btn" onClick={() => exibirErrado(props.number)}>Não lembrei</Botao>
+                    <Botao cor={"#FF922E"} data-test="partial-btn" onClick={() => exibirMedio(props.number)}>Quase não lembrei</Botao>
+                    <Botao cor={"#2FBE34"} data-test="zap-btn" onClick={() => exibirCertos(props.number)}> Zap!</Botao>
+                </div>
+            </BackFace>
+        </div>
     )
 }
 

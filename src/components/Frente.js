@@ -8,10 +8,12 @@ export default function Frente(props) {
     }
 
     return (
-        <FrontFace data-test="flashcard">
-            <span data-test="flashcard-text"> {props.question} </span>
-            <img src={virar} alt="virar" data-test="turn-btn" onClick={() => exibirVerso(props.number)}/>
-        </FrontFace>
+        <div data-test="flashcard">
+            <FrontFace>
+                <span data-test="flashcard-text"> {props.question} </span>
+                <img src={virar} alt="virar" data-test="turn-btn" onClick={() => exibirVerso(props.number)}/>
+            </FrontFace>
+        </div>
     )
 }
 
